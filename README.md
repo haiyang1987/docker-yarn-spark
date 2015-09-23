@@ -1,4 +1,4 @@
-# Quick Start
+# Apache Spark on YARN Quick Start
 #### Pull the image from Docker Repository
 ```sh
 docker pull kairen/yarn-spark:1.5
@@ -10,8 +10,9 @@ docker run -d -p 8088:8088 -p 50070:50070 -h spark-master  \
 -v  <your_dir>:/root/  \
 --name yarn-spark kairen/yarn-spark:1.5 -d
 ```
+> The ```<your_dir>``` is a share directory, you can put adataset or run file in here.
 
-#### Enter container 
+#### Enter the container 
 ```sh
 docker exec -ti <conatiner id> bash
 ```
