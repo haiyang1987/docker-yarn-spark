@@ -3,14 +3,14 @@
 ```sh
 docker pull kairen/yarn-spark:1.5
 ```
-<br/>
+
 #### Running the image
 ```sh
 docker run -d -p 8088:8088 -p 50070:50070 -h spark-master  \
 -v  <your_dir>:/root/  \
 --name yarn-spark kairen/yarn-spark:1.5 -d
 ```
-<br/>
+
 #### Enter container 
 ```sh
 docker exec -ti <conatiner id> bash
@@ -48,7 +48,6 @@ cd /root/python
 spark-submit wordcount.py hdfs://sandbox:9000/test/test.txt
 ```
 
-<br/>
 Running the spark on YARN：
 ```sh
 cd /root/python
