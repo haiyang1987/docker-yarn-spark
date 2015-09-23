@@ -8,7 +8,7 @@ RUN curl -s http://10.21.20.152:5000/files/spark-1.5.0-bin-hadoop2.6.tgz | tar -
 RUN cd /usr/local && ln -s spark-1.5.0-bin-hadoop2.6 spark
 ENV SPARK_HOME /usr/local/spark
 RUN mkdir $SPARK_HOME/yarn-remote-client
-ADD yarn-remote-client $SPARK_HOME/yarn-remote-client
+ADD yarn-conf $SPARK_HOME/yarn-remote-client
 
 RUN $BOOTSTRAP && $HADOOP_PREFIX/bin/hadoop dfsadmin -safemode leave && $HADOOP_PREFIX/bin/hdfs dfs -put $SPARK_HOME-1.5.0-bin-hadoop2.6/lib /spark
 
@@ -27,6 +27,8 @@ RUN echo 'root:nutcimac' | chpasswd
 RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 RUN yum -y install R
 
+# Copy examples
+COPY examples/ /root/
 
 
 ENTRYPOINT ["/etc/boot_run.sh"]
