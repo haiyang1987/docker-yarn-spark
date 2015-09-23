@@ -21,7 +21,7 @@ VOLUME /root/
 COPY boot_run.sh /etc/boot_run.sh
 RUN chown root.root /etc/boot_run.sh
 RUN chmod 700 /etc/boot_run.sh
-RUN echo 'root:nutcimac' | chpasswd
+RUN echo 'root:yarnspark' | chpasswd
 
 # Install R
 RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
