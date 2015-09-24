@@ -1,10 +1,10 @@
 # Apache Spark on YARN Quick Start
-#### Pull the image from Docker Repository
+**Pull the image from Docker Repository：**
 ```sh
 docker pull kairen/yarn-spark:1.5
 ```
 
-#### Running the image
+**Running the image：**
 ```sh
 docker run -d -p 8088:8088 -p 50070:50070 -h spark-master  \
 -v  <your_dir>:/root/  \
@@ -48,13 +48,13 @@ hadoop fs -put test.txt /test
 ```
 
 #### Running Spark Job
-Running the spark on standard：
+**Running the spark on standard：**
 ```sh
 cd /root/python
 spark-submit wordcount.py hdfs://spark-master:9000/test/test.txt
 ```
 
-Running the spark on YARN：
+**Running the spark on YARN：**
 ```sh
 cd /root/python
 spark-submit --master yarn-cluster wordcount.py hdfs://spark-master:9000/test/test.txt
