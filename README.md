@@ -7,7 +7,7 @@ docker pull kairen/yarn-spark:1.5
 **Running the image：**
 ```sh
 docker run -d -p 8088:8088 -p 50070:50070 -h spark-master  \
--v  <your_dir>:/root/  \
+-v  <your_dir>:/root/spark-run/  \
 --name yarn-spark kairen/yarn-spark:1.5 -d
 ```
 > The ```<your_dir>``` is a share directory, you can put a dataset or run file in here.

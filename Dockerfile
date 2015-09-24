@@ -4,7 +4,7 @@ MAINTAINER Kyle.Bai
 
 # support for Hadoop 2.6.0
 # internet url = http://d3kbcqa49mib13.cloudfront.net/spark-1.5.0-bin-hadoop2.6.tgz
-RUN curl -s http://d3kbcqa49mib13.cloudfront.net/spark-1.5.0-bin-hadoop2.6.tgz | tar -xz -C /usr/local/
+RUN curl -s http://10.21.20.152:5000/files/spark-1.5.0-bin-hadoop2.6.tgz | tar -xz -C /usr/local/
 RUN cd /usr/local && ln -s spark-1.5.0-bin-hadoop2.6 spark
 ENV SPARK_HOME /usr/local/spark
 RUN mkdir $SPARK_HOME/yarn-remote-client
@@ -14,8 +14,6 @@ RUN $BOOTSTRAP && $HADOOP_PREFIX/bin/hadoop dfsadmin -safemode leave && $HADOOP_
 
 ENV YARN_CONF_DIR $HADOOP_PREFIX/etc/hadoop
 ENV PATH $PATH:$SPARK_HOME/bin:$HADOOP_PREFIX/bin
-
-VOLUME /root/
 
 # Update boot script
 COPY boot_run.sh /etc/boot_run.sh
